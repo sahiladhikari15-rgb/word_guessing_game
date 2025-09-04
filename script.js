@@ -12,7 +12,8 @@ function updateWordDisplay() {
   document.getElementById("wrong").textContent = wrongGuesses.join(", ");
 }
 
-function makeGuess() {
+function makeGuess(e) {
+  if (e) e.preventDefault();
   const input = document.getElementById("guessInput");
   const guess = input.value.toUpperCase();
   input.value = '';
@@ -35,4 +36,10 @@ function makeGuess() {
     document.getElementById("message").textContent = "";
   }
 }
+
 updateWordDisplay();
+
+// Handle form submit (button and Enter key)
+document.getElementById("guessForm").addEventListener("submit", makeGuess);
+// Optional: focus input on load
+document.getElementById("guessInput").focus();
