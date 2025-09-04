@@ -12,11 +12,18 @@
     <div>
       Wrong guesses: <span id="wrong"></span>
     </div>
-    <input type="text" id="guessInput" maxlength="1">
-    <button onclick="makeGuess()">Guess</button>
+    <form id="guessForm" autocomplete="off">
+      <input type="text" id="guessInput" maxlength="1" autocomplete="off">
+      <button type="submit" id="guessButton">Guess</button>
+    </form>
     <p id="message"></p>
     <p>
-      My friend guessed the word with only one error. Can you beat him?
+      My colleague guessed the word with only one error. Can you beat him?
     </p>
     <p>
-      <em>Hint: This word is featured in my LinkedIn header image and perfectly captures the System Plus working
+      <em>Hint: This word is featured in my LinkedIn header image and perfectly captures the System Plus working motto.</em>
+    </p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
