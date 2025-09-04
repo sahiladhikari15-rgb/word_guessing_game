@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  text-align: center;
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+#word {
+  font-size: 2em;
+  letter-spacing: 12px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  font-size: 1em;
+  padding: 5px;
+  width: 30px;
+  text-align: center;
+}
+
+button {
+  font-size: 1em;
+  padding: 5px 10px;
+  margin-left: 8px;
+}
+
+#message {
+  color: #276305;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+em {
+  color: #666666;
+  font-size: 1em;
+}
