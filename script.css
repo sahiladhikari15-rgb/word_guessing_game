@@ -57,7 +57,7 @@ button {
 }
 
 #message {
-  color: #276305;
+  color: #d00b0b;
   font-weight: bold;
   margin-top: 16px;
   font-size: 1.1em;
@@ -66,4 +66,9 @@ button {
 em {
   color: #666666;
   font-size: 1em;
+}
+
+a {
+  color: #276305;
+  text-decoration: underline;
 }
