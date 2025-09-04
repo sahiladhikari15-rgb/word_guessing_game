@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sahil's Simple Word Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Sahil's Simple Word Guessing Game</h1>
+  <h2>Guess the 10 letter word:</h2>
+  <div id="word">----------</div> <!-- 10 underscores for "DISRUPTIVE" -->
+  <div>
+    Wrong guesses: <span id="wrong"></span>
+  </div>
+  <input type="text" id="guessInput" maxlength="1">
+  <button onclick="makeGuess()">Guess</button>
+  <p id="message"></p>
+  <p>
+    My friend guessed the word with only one error. Can you beat him?
+  </p>
+  <p>
+    <em>Hint: The word appears in my LinkedIn articles and discussions about innovation.</em>
+  </p>
+  <script>
+    const secretWord = "DISRUPTIVE";
+    let guessedLetters = [];
+    let wrongGuesses = [];
+
+    function updateWordDisplay() {
+      let display = "";
+      for (let c of secretWord) {
+        if (guessedLetters.includes(c)) display += c;
+        else display += "-";
+      }
+      document.getElementById("word").textContent = display;
+      document.getElementById("wrong").textContent = wrongGuesses.join(", ");
+    }
+
+    function makeGuess() {
+      const input = document.getElementById("guessInput");
+      const guess = input.value.toUpperCase();
+      input.value = '';
+
+      if (!guess || guess.length !== 1 || guessedLetters.includes(guess) || wrongGuesses.includes(guess)) {
+        document.getElementById("message").textContent = "Invalid guess.";
+        return;
+      }
+
+      if (secretWord.includes(guess)) {
+        guessedLetters.push(guess);
+      } else {
+        wrongGuesses.push(guess);
+      }
+      updateWordDisplay();
+
+      if (!document.getElementById("word").textContent.includes('-')) {
+        document.getElementById("message").textContent = "Congratulations!";
+      }
+    }
+    updateWordDisplay();
+  </script>
+</body>
+</html>
