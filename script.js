@@ -5,19 +5,14 @@ let wrongGuesses = [];
 function updateWordDisplay() {
   let display = "";
   for (let c of secretWord) {
-    if (guessedLetters.includes(c)) display += c;
-    else display += "-";
+    display += guessedLetters.includes(c) ? c : "-";
   }
   document.getElementById("word").textContent = display;
   document.getElementById("wrong").textContent = wrongGuesses.join(", ");
 }
 
-function makeGuess(e) {
-  if (e) e.preventDefault();
-  const input = document.getElementById("guessInput");
-  const guess = input.value.toUpperCase();
-  input.value = '';
-
+function makeGuess(guess) {
+  guess = guess.toUpperCase();
   if (!guess || guess.length !== 1 || guessedLetters.includes(guess) || wrongGuesses.includes(guess)) {
     document.getElementById("message").textContent = "Invalid guess.";
     return;
@@ -37,9 +32,12 @@ function makeGuess(e) {
   }
 }
 
-updateWordDisplay();
+document.getElementById("guessForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const input = document.getElementById("guessInput");
+  makeGuess(input.value);
+  input.value = '';
+  input.focus();
+});
 
-// Handle form submit (button and Enter key)
-document.getElementById("guessForm").addEventListener("submit", makeGuess);
-// Optional: focus input on load
-document.getElementById("guessInput").focus();
+updateWordDisplay();
